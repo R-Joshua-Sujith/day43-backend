@@ -17,6 +17,11 @@ mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log("DB Connection Successful"))
     .catch((err) => console.log(err));
 
+app.get("/", async (req, res) => {
+    res.send("Day43 Backend")
+})
+
+
 app.post("/signup", async (req, res) => {
     const email = req.body.email;
     const user = await UserModel.findOne({ email });
